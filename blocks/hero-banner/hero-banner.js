@@ -1,9 +1,9 @@
 export default function decorate(block) {
-  // Check the image cell (first row) for a video link
-  const firstRow = block.querySelector(':scope > div:first-child');
-  if (!firstRow) return;
+  // Check the image column (first column in the row) for a video link
+  const imageCol = block.querySelector(':scope > div > div:first-child');
+  if (!imageCol) return;
 
-  const videoLink = firstRow.querySelector('a[href*=".mp4"]');
+  const videoLink = imageCol.querySelector('a[href*=".mp4"]');
   if (!videoLink) return;
 
   const videoSrc = videoLink.href;
@@ -18,12 +18,11 @@ export default function decorate(block) {
   video.playsInline = true;
 
   // Use existing image as poster
-  const img = firstRow.querySelector('img');
+  const img = imageCol.querySelector('img');
   if (img) {
     video.poster = img.src;
     img.replaceWith(video);
   } else {
-    const cell = firstRow.querySelector(':scope > div');
-    if (cell) cell.appendChild(video);
+    imageCol.appendChild(video);
   }
 }

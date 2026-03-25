@@ -339,13 +339,6 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "embed_placeholderAlt",
-        "value": "",
-        "label": "Placeholder Image Alt Text"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
         "name": "embed_uri",
         "label": "URI"
       }
@@ -411,13 +404,6 @@
         "name": "image",
         "label": "Image",
         "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "imageAlt",
-        "label": "Alt",
-        "value": ""
       },
       {
         "component": "richtext",
