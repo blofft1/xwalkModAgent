@@ -1,0 +1,86 @@
+/*
+ * Cards Service Block - Faherty Brand
+ * Service icons bar (Free Shipping, Find a Store, Returns, Quality)
+ * Note: Both divs get .cards-service-card-body since images aren't in <picture> elements
+ */
+
+.cards-service > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px 16px;
+}
+
+.cards-service > ul > li {
+  border: none;
+  background-color: transparent;
+  text-align: center;
+}
+
+/* First div contains the illustration image */
+.cards-service > ul > li > .cards-service-card-body:first-child {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+  line-height: 0;
+}
+
+.cards-service > ul > li > .cards-service-card-body:first-child p {
+  margin: 0;
+  line-height: 0;
+}
+
+.cards-service > ul > li > .cards-service-card-body:first-child img {
+  width: 120px;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+/* Second div contains title and CTA link */
+.cards-service > ul > li > .cards-service-card-body:last-child {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.cards-service .cards-service-card-body:last-child h4 {
+  font-family: var(--heading-font-family);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--text-color);
+  margin: 0 0 8px;
+  line-height: 1.3;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.cards-service .cards-service-card-body:last-child p {
+  margin: 0;
+}
+
+.cards-service .cards-service-card-body:last-child a {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-label);
+  color: var(--text-color);
+  text-decoration: none;
+  border-bottom: 1px solid currentcolor;
+  padding-bottom: 4px;
+  transition: opacity var(--transition-base);
+}
+
+.cards-service .cards-service-card-body:last-child a:hover {
+  opacity: 0.7;
+}
+
+@media (width >= 900px) {
+  .cards-service > ul {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+}

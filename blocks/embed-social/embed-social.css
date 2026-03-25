@@ -1,0 +1,100 @@
+/*
+ * Embed Social Block - Faherty Brand
+ * Social media section with "CATCH US ON SOCIAL" header
+ */
+
+.embed-social {
+  width: unset;
+  text-align: center;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.embed-social > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.embed-social > div > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Wave/separator images */
+.embed-social img {
+  max-width: 40px;
+  height: auto;
+}
+
+/* Social heading text */
+.embed-social p {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-badge);
+  color: var(--text-color);
+  margin: 8px 0;
+}
+
+.embed-social.embed-social-twitter .twitter-tweet-rendered {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.embed-social .embed-social-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  position: relative;
+}
+
+.embed-social .embed-social-placeholder > * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  inset: 0;
+}
+
+.embed-social .embed-social-placeholder picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-width: 100%;
+}
+
+.embed-social .embed-social-placeholder-play button {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(3);
+  width: 22px;
+  height: 22px;
+  border: 2px solid;
+  border-radius: 20px;
+  padding: 0;
+}
+
+.embed-social .embed-social-placeholder-play button::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  width: 0;
+  height: 10px;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 6px solid;
+  top: 4px;
+  left: 7px;
+}
+
+@media (width >= 900px) {
+  .embed-social {
+    padding: 60px 40px;
+  }
+}

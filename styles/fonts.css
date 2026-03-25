@@ -1,36 +1,36 @@
-/* stylelint-disable max-line-length */
-@font-face {
-  font-family: roboto-condensed;
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('../fonts/roboto-condensed-bold.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
+/* Faherty Brand Typography
+ * Primary: Sohne Light (body), Cheltenham Light (headings/display)
+ * Licensed fonts served from Shopify CDN
+ */
 
 @font-face {
-  font-family: roboto;
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('../fonts/roboto-bold.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('../fonts/roboto-medium.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-  font-family: roboto;
+  font-family: 'Sohne Light';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('../fonts/roboto-regular.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  src: url('https://fahertybrand.com/cdn/shop/t/1224/assets/Sohne-Light.woff2?v=1607662706') format('woff2');
+}
+
+@font-face {
+  font-family: Sohne;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://fahertybrand.com/cdn/shop/t/1224/assets/Sohne-Regular.woff2?v=1727411093') format('woff2');
+}
+
+@font-face {
+  font-family: 'Sohne Semibold';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('https://fahertybrand.com/cdn/shop/t/1224/assets/Sohne-Kraftig.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Cheltenham Light';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://fahertybrand.com/cdn/shop/t/1224/assets/CheltenhamStdLight.woff?v=1234') format('woff');
 }

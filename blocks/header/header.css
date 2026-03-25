@@ -1,3 +1,8 @@
+/*
+ * Header Block - Faherty Brand
+ * Clean minimal header with cream background, Sohne Light font
+ */
+
 /* header and nav layout */
 header .nav-wrapper {
   background-color: var(--background-color);
@@ -52,6 +57,7 @@ header nav p {
 
 header nav a:any-link {
   color: currentcolor;
+  text-decoration: none;
 }
 
 /* hamburger */
@@ -142,11 +148,22 @@ header .nav-brand {
   font-size: var(--heading-font-size-s);
   font-weight: 700;
   line-height: 1;
+  text-align: center;
 }
 
 header nav .nav-brand img {
   width: 128px;
   height: auto;
+}
+
+header nav .nav-brand a {
+  font-family: var(--heading-font-family);
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: var(--letter-spacing-heading);
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-color);
 }
 
 /* sections */
@@ -166,11 +183,11 @@ header nav[aria-expanded='true'] .nav-sections {
 header nav .nav-sections ul {
   list-style: none;
   padding-left: 0;
-  font-size: var(--body-font-size-s);
+  font-size: var(--body-font-size-xs);
 }
 
 header nav .nav-sections ul > li {
-  font-weight: 500;
+  font-weight: 400;
 }
 
 header nav .nav-sections ul > li > ul {
@@ -179,6 +196,29 @@ header nav .nav-sections ul > li > ul {
 
 header nav .nav-sections ul > li > ul > li {
   font-weight: 400;
+}
+
+/* Nav link styling */
+header nav .nav-sections a {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs);
+  letter-spacing: var(--letter-spacing-label);
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: opacity var(--transition-base);
+}
+
+header nav .nav-sections a:hover {
+  opacity: 0.7;
+}
+
+/* Dropdown label styling */
+header nav .nav-sections .nav-drop {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs);
+  letter-spacing: var(--letter-spacing-label);
+  text-transform: uppercase;
 }
 
 @media (width >= 900px) {
@@ -205,11 +245,11 @@ header nav .nav-sections ul > li > ul > li {
     top: 2px;
     right: 2px;
     transform: rotate(135deg);
-    width: 6px;
-    height: 6px;
-    border: 2px solid currentcolor;
+    width: 5px;
+    height: 5px;
+    border: 1.5px solid currentcolor;
     border-radius: 0 1px 0 0;
-    border-width: 2px 2px 0 0;
+    border-width: 1.5px 1.5px 0 0;
   }
 
   header nav .nav-sections .nav-drop[aria-expanded='true']::after {
@@ -238,28 +278,24 @@ header nav .nav-sections ul > li > ul > li {
     display: block;
     position: absolute;
     left: -24px;
-    width: 200px;
+    width: 220px;
     top: 150%;
-    padding: 16px;
-    background-color: var(--light-color);
+    padding: 16px 24px;
+    background-color: var(--background-color);
+    border: 1px solid rgb(30 32 32 / 8%);
     white-space: initial;
     z-index: 1;
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li > ul::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: 16px;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid var(--light-color);
-  }
-
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
     padding: 8px 0;
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  header nav .nav-sections .default-content-wrapper > ul > li > ul > li a {
+    font-size: 13px;
+    text-transform: none;
+    letter-spacing: 0.5px;
   }
 }
 
@@ -274,6 +310,15 @@ header nav .nav-tools .button {
   padding: 0.5em;
   background: none;
   line-height: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+header nav .nav-tools a {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-label);
+  text-decoration: none;
 }
 
 /* breadcrumbs */

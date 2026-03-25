@@ -1,0 +1,85 @@
+/*
+ * Columns Diptych Block - Faherty Brand
+ * Side-by-side image panels with text overlay
+ */
+
+.columns-diptych-container .columns-diptych-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.columns-diptych > div {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+.columns-diptych > div > div {
+  position: relative;
+  overflow: hidden;
+  order: 1;
+}
+
+.columns-diptych img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 300px;
+}
+
+.columns-diptych > div > .columns-diptych-img-col {
+  order: 0;
+}
+
+.columns-diptych > div > .columns-diptych-img-col img {
+  display: block;
+}
+
+/* Text overlay on each panel */
+.columns-diptych > div > div:not(.columns-diptych-img-col) {
+  position: relative;
+}
+
+.columns-diptych p {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-label);
+  color: var(--text-color);
+  margin: 0 0 8px;
+}
+
+.columns-diptych h3 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-l);
+  font-weight: 400;
+  color: var(--text-color);
+  margin: 0 0 16px;
+}
+
+.columns-diptych a {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-label);
+  color: var(--text-color);
+  text-decoration: none;
+  border-bottom: 1px solid currentcolor;
+  padding-bottom: 4px;
+}
+
+@media (width >= 900px) {
+  .columns-diptych > div {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+  }
+
+  .columns-diptych > div > div {
+    order: unset;
+  }
+
+  .columns-diptych img {
+    min-height: 500px;
+  }
+}

@@ -1,0 +1,207 @@
+/*
+ * Carousel Product Block - Faherty Brand
+ * Horizontal scrolling product cards with badge, title, price
+ */
+
+.carousel-product {
+  position: relative;
+}
+
+.carousel-product .carousel-product-slides-container {
+  position: relative;
+}
+
+.carousel-product .carousel-product-slides,
+.carousel-product .carousel-product-slide-indicators {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel-product .carousel-product-slides {
+  display: flex;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overflow: auto hidden;
+  gap: 16px;
+  padding: 0 24px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.carousel-product .carousel-product-slides::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-product .carousel-product-slide {
+  flex: 0 0 220px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: auto;
+}
+
+/* Image */
+.carousel-product .carousel-product-slide .carousel-product-slide-image {
+  position: relative;
+  line-height: 0;
+}
+
+.carousel-product .carousel-product-slide .carousel-product-slide-image picture {
+  position: relative;
+  inset: auto;
+}
+
+.carousel-product .carousel-product-slide .carousel-product-slide-image picture > img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+/* Content area (badge, title, price) */
+.carousel-product .carousel-product-slide .carousel-product-slide-content {
+  z-index: 1;
+  margin: 0;
+  padding: 12px 0 0;
+  color: var(--text-color);
+  background-color: transparent;
+  position: relative;
+  width: auto;
+}
+
+/* Badge (Best Seller / New) */
+.carousel-product .carousel-product-slide-content em {
+  font-style: normal;
+  font-size: var(--body-font-size-xxs);
+  font-family: var(--body-font-family);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-badge);
+  color: var(--text-color);
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* Product title */
+.carousel-product .carousel-product-slide-content h4 {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--text-color);
+  margin: 0 0 6px;
+}
+
+/* Price */
+.carousel-product .carousel-product-slide-content p:last-child {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  color: var(--text-color);
+  margin: 0;
+}
+
+/* Slide indicators (dots) */
+.carousel-product .carousel-product-slide-indicators {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  padding: 24px 12px;
+  line-height: 0;
+}
+
+.carousel-product .carousel-product-slide-indicator button {
+  width: 10px;
+  height: 10px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: #dadada;
+  transition: background-color var(--transition-base);
+}
+
+.carousel-product .carousel-product-slide-indicator button:disabled,
+.carousel-product .carousel-product-slide-indicator button:hover,
+.carousel-product .carousel-product-slide-indicator button:focus-visible {
+  background-color: var(--text-color);
+}
+
+/* Navigation buttons */
+.carousel-product .carousel-product-navigation-buttons {
+  position: absolute;
+  top: 35%;
+  transform: translateY(-50%);
+  left: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.carousel-product .carousel-product-navigation-buttons button {
+  pointer-events: auto;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+  background-color: rgb(255 255 255 / 80%);
+  box-shadow: 0 1px 4px rgb(0 0 0 / 10%);
+  transition: background-color var(--transition-base);
+}
+
+.carousel-product .carousel-product-navigation-buttons button:hover,
+.carousel-product .carousel-product-navigation-buttons button:focus-visible {
+  background-color: rgb(255 255 255 / 95%);
+}
+
+.carousel-product .carousel-product-navigation-buttons button::after {
+  display: block;
+  content: '';
+  border: 2px solid var(--text-color);
+  border-bottom: 0;
+  border-left: 0;
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 2px);
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+.carousel-product .carousel-product-navigation-buttons button.slide-next::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+  left: calc(50% - 2px);
+}
+
+@media (width >= 600px) {
+  .carousel-product .carousel-product-slide {
+    flex: 0 0 280px;
+  }
+
+  .carousel-product .carousel-product-slides {
+    padding: 0 40px;
+  }
+
+  .carousel-product .carousel-product-navigation-buttons {
+    left: 24px;
+    right: 24px;
+  }
+}
+
+@media (width >= 900px) {
+  .carousel-product .carousel-product-slide {
+    flex: 0 0 calc((100% - 180px) / 4);
+  }
+
+  .carousel-product .carousel-product-slides {
+    gap: 20px;
+  }
+}
