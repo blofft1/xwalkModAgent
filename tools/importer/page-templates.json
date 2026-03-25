@@ -1,0 +1,162 @@
+{
+  "templates": [
+    {
+      "name": "homepage",
+      "urls": [
+        "https://fahertybrand.com/"
+      ],
+      "description": "Faherty Brand homepage with hero, product collections, lifestyle imagery, and brand storytelling",
+      "blocks": [
+        {
+          "name": "hero-banner",
+          "instances": [
+            "section[id*=\"homepage_slideshow_XTNM7e\"]",
+            "section[id*=\"homepage_slideshow_Qwpkep\"]",
+            "section[id*=\"homepage_slideshow_8qAWWT\"]"
+          ]
+        },
+        {
+          "name": "carousel-product",
+          "instances": [
+            "[id*=\"react_slider_BNhDQE\"]"
+          ]
+        },
+        {
+          "name": "columns-diptych",
+          "instances": [
+            "section[id*=\"homepage_slideshow_cbMCQk\"]",
+            "section[id*=\"homepage_slideshow_Rp6Gc4\"]"
+          ]
+        },
+        {
+          "name": "cards-category",
+          "instances": [
+            "[id*=\"multi_column_M4b47H\"]"
+          ]
+        },
+        {
+          "name": "embed-social",
+          "instances": [
+            ".shopify-section--apps"
+          ]
+        },
+        {
+          "name": "cards-feature",
+          "instances": [
+            "section:has(img[alt*='Store Locator'])"
+          ]
+        },
+        {
+          "name": "cards-service",
+          "instances": [
+            "section:has(img[alt*='Faherty Truck'])"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Hero Slideshow",
+          "selector": "section[id*=\"homepage_slideshow_XTNM7e\"]",
+          "style": "dark",
+          "blocks": ["hero-banner"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2",
+          "name": "New Arrivals Divider",
+          "selector": "[id*=\"rich_text_c87wNC\"]",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            "[id*=\"rich_text_c87wNC\"] h2",
+            "[id*=\"rich_text_c87wNC\"] img"
+          ]
+        },
+        {
+          "id": "section-3",
+          "name": "Product Slider",
+          "selector": "[id*=\"react_slider_BNhDQE\"]",
+          "style": null,
+          "blocks": ["carousel-product"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-4",
+          "name": "Diptych - Dresses & Reserve",
+          "selector": "section[id*=\"homepage_slideshow_cbMCQk\"]",
+          "style": null,
+          "blocks": ["columns-diptych"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-5",
+          "name": "Diptych - Linen & Shorts",
+          "selector": "section[id*=\"homepage_slideshow_Rp6Gc4\"]",
+          "style": null,
+          "blocks": ["columns-diptych"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-6",
+          "name": "Category Grid",
+          "selector": "[id*=\"multi_column_M4b47H\"]",
+          "style": null,
+          "blocks": ["cards-category"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-7",
+          "name": "Reef Collaboration Banner",
+          "selector": "section[id*=\"homepage_slideshow_Qwpkep\"]",
+          "style": null,
+          "blocks": ["hero-banner"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-8",
+          "name": "Design Studio Banner",
+          "selector": "section[id*=\"homepage_slideshow_8qAWWT\"]",
+          "style": null,
+          "blocks": ["hero-banner"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-9",
+          "name": "Social Divider",
+          "selector": "main > div:has(> img[alt='Wave'])",
+          "style": null,
+          "blocks": [],
+          "defaultContent": [
+            "main > div:has(> img[alt='Wave']) h2",
+            "main > div:has(> img[alt='Wave']) img"
+          ]
+        },
+        {
+          "id": "section-10",
+          "name": "Social Video Carousel",
+          "selector": ".shopify-section--apps",
+          "style": null,
+          "blocks": ["embed-social"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-11",
+          "name": "Brand Values",
+          "selector": "section:has(img[alt*='Store Locator'])",
+          "style": "dark",
+          "blocks": ["cards-feature"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-12",
+          "name": "Service Features Bar",
+          "selector": "section:has(img[alt*='Faherty Truck'])",
+          "style": null,
+          "blocks": ["cards-service"],
+          "defaultContent": []
+        }
+      ]
+    }
+  ]
+}

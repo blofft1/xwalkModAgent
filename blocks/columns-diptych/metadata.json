@@ -1,0 +1,38 @@
+{
+  "variantName": "columns-diptych",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-03-25T15:45:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://fahertybrand.com/",
+    "originPage": "Faherty Brand homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "side-by-side-panels",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "2 columns: image + heading + CTA each",
+    "buttonCount": 2,
+    "imageCount": 2
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "side-by-side promotional panels",
+      "diptych image layouts",
+      "two-column feature showcases"
+    ],
+    "notSuitableFor": [
+      "multi-column data grids",
+      "text-only column layouts"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/content/index"],
+    "reuseCount": 2,
+    "lastUsed": "2026-03-25T15:45:00.000Z"
+  }
+}

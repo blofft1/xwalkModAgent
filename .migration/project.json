@@ -1,0 +1,6 @@
+{
+  "type": "xwalk",
+  "libraryUrl": "https://main--sta-xwalk-boilerplate--aemysites.aem.page/tools/sidekick/library.json",
+  "mountpoint": "https://author-p151762-e1796016.adobeaemcloud.com/bin/franklin.delivery/blofft1/xwalkModAgent/main",
+  "contentHostUrl": "https://content.da.live/blofft1/xwalkmodagent/"
+}

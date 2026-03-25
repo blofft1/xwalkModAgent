@@ -1,0 +1,102 @@
+/*
+ * Hero Banner Block - Faherty Brand
+ * Full-width hero with background image, title overlay, and CTAs
+ */
+
+.hero-banner-container .hero-banner-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero-banner {
+  position: relative;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.hero-banner h1,
+.hero-banner h2 {
+  font-family: var(--heading-font-family);
+  font-weight: 400;
+  color: var(--background-color);
+  margin: 0 0 16px;
+  line-height: 1.1;
+  text-shadow: 0 1px 4px rgb(0 0 0 / 20%);
+}
+
+.hero-banner p {
+  color: var(--background-color);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  line-height: 1.5;
+  margin: 0 0 16px;
+}
+
+.hero-banner .button-container {
+  margin: 0;
+  padding: 0;
+}
+
+.hero-banner a.button {
+  color: var(--background-color);
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--background-color);
+  border-radius: 0;
+  padding: 4px 0;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-label);
+  margin: 0 12px;
+  display: inline-block;
+}
+
+.hero-banner a.button:hover {
+  opacity: 0.8;
+  background: none;
+}
+
+/* Column 1: image as absolute background */
+.hero-banner > div > div:first-child {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+}
+
+.hero-banner > div > div:first-child p {
+  margin: 0;
+  height: 100%;
+}
+
+.hero-banner > div > div:first-child img,
+.hero-banner > div > div:first-child video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Column 2: text overlay */
+/* stylelint-disable-next-line no-descending-specificity */
+.hero-banner > div > div:last-child {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  text-align: center;
+  padding: 60px 24px;
+}
+
+@media (width >= 900px) {
+  .hero-banner {
+    min-height: 700px;
+  }
+
+  .hero-banner > div > div:last-child {
+    padding: 80px 40px;
+  }
+}
