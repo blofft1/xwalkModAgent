@@ -60,6 +60,13 @@
 /* stylelint-disable-next-line no-descending-specificity */
 .cards-category .cards-category-card-body:last-child p {
   margin: 0 0 4px;
+  display: inline;
+}
+
+.cards-category .cards-category-card-body:last-child p + p::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
 }
 
 .cards-category .cards-category-card-body:last-child a {
