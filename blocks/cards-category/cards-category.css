@@ -1,0 +1,90 @@
+/*
+ * Cards Category Block - Faherty Brand
+ * 2x2 mobile / 4-column desktop grid (Pants, Outerwear, Tees, Shirts)
+ * Note: Both divs get .cards-category-card-body since images aren't in <picture> elements
+ */
+
+.cards-category > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px 16px;
+}
+
+.cards-category > ul > li {
+  border: none;
+  background-color: transparent;
+}
+
+/* First div contains the image */
+.cards-category > ul > li > .cards-category-card-body:first-child {
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  overflow: hidden;
+}
+
+.cards-category > ul > li > .cards-category-card-body:first-child p {
+  margin: 0;
+  line-height: 0;
+}
+
+.cards-category > ul > li > .cards-category-card-body:first-child img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.cards-category > ul > li:hover > .cards-category-card-body:first-child img {
+  transform: scale(1.03);
+}
+
+/* Second div contains heading and CTAs */
+.cards-category > ul > li > .cards-category-card-body:last-child {
+  margin: 0;
+  padding: 16px 0 0;
+}
+
+.cards-category .cards-category-card-body:last-child h3 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-s);
+  font-weight: 400;
+  color: var(--text-color);
+  margin: 0 0 12px;
+  line-height: 1.3;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.cards-category .cards-category-card-body:last-child p {
+  margin: 0 0 4px;
+}
+
+.cards-category .cards-category-card-body:last-child a {
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-label);
+  color: var(--text-color);
+  text-decoration: none;
+  border-bottom: 1px solid currentcolor;
+  padding-bottom: 4px;
+  transition: opacity var(--transition-base);
+}
+
+.cards-category .cards-category-card-body:last-child a:hover {
+  opacity: 0.7;
+}
+
+@media (width >= 900px) {
+  .cards-category > ul {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px 30px;
+  }
+
+  .cards-category .cards-category-card-body:last-child h3 {
+    font-size: 20px;
+  }
+}

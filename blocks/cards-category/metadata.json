@@ -1,0 +1,38 @@
+{
+  "variantName": "cards-category",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-03-25T15:10:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://fahertybrand.com/",
+    "originPage": "Faherty Brand homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "category-navigation",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + heading + gendered links",
+    "buttonCount": 2,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "category navigation grids",
+      "product category showcases",
+      "department landing pages"
+    ],
+    "notSuitableFor": [
+      "product detail cards",
+      "text-only feature lists"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/content/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-03-25T15:10:00.000Z"
+  }
+}

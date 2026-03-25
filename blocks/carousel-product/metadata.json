@@ -1,0 +1,38 @@
+{
+  "variantName": "carousel-product",
+  "baseBlock": "carousel",
+  "version": "1.0.0",
+  "created": "2026-03-25T15:45:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://fahertybrand.com/",
+    "originPage": "Faherty Brand homepage",
+    "blockPosition": "upper"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "product-showcase",
+    "imagePattern": "medium"
+  },
+  "contentPattern": {
+    "structure": "slide image + product name + price + badge",
+    "buttonCount": 0,
+    "imageCount": 10
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "product showcase carousels",
+      "new arrivals sliders",
+      "featured collection carousels"
+    ],
+    "notSuitableFor": [
+      "text-only testimonial sliders",
+      "hero banner slideshows"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/content/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-03-25T15:45:00.000Z"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "variantName": "cards-feature",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-03-25T15:45:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://fahertybrand.com/",
+    "originPage": "Faherty Brand homepage",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "brand-values",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + eyebrow + heading + CTA",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "brand values showcase",
+      "dark overlay feature cards",
+      "mission/vision cards"
+    ],
+    "notSuitableFor": [
+      "product listing cards",
+      "icon-based service lists"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/content/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-03-25T15:45:00.000Z"
+  }
+}
