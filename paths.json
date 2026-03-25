@@ -1,0 +1,7 @@
+{
+  "mappings": [
+    "/content/xwalkmodagent/:/",
+    "/content/xwalkmodagent/metadata:/metadata.json",
+    "/content/xwalkmodagent/configuration:/.helix/config.json"
+  ]
+}
