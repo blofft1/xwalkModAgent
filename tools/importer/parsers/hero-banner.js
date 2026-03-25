@@ -9,8 +9,14 @@
  * xwalk model fields: image (reference), imageAlt (collapsed), text (richtext)
  */
 export default function parse(element, { document }) {
+  // Extract background video (if present)
+  const bgVideo = element.querySelector('video-media video, video');
+  const videoSrc = bgVideo ? (bgVideo.src || bgVideo.querySelector('source')?.src) : null;
+
   // Extract background image (poster image or first prominent img)
-  const bgImg = element.querySelector('.content-over-media > picture img, .content-over-media > img, .slideshow__slide img.responsive-img, video-media + img, img.responsive-img');
+  const bgImg = bgVideo?.poster
+    ? { src: bgVideo.poster, alt: bgVideo.alt || '' }
+    : element.querySelector('.content-over-media > picture img, .content-over-media > img, .slideshow__slide img.responsive-img, video-media + img, img.responsive-img');
 
   // Extract text content from the overlay
   const prose = element.querySelector('.homepage-slideshow-content .prose');
@@ -54,14 +60,23 @@ export default function parse(element, { document }) {
   // Build cells: row 1 = image, row 2 = text content
   const cells = [];
 
-  // Row 1: Background image with field hint
-  if (bgImg) {
+  // Row 1: Background image (+ video link if present) with field hint
+  if (bgImg || videoSrc) {
     const imgFrag = document.createDocumentFragment();
     imgFrag.appendChild(document.createComment(' field:image '));
-    const pic = document.createElement('img');
-    pic.src = bgImg.src;
-    pic.alt = bgImg.alt || '';
-    imgFrag.appendChild(pic);
+    if (bgImg) {
+      const pic = document.createElement('img');
+      pic.src = bgImg.src;
+      pic.alt = bgImg.alt || '';
+      imgFrag.appendChild(pic);
+    }
+    // Include video source as a link so the block JS can detect and render it
+    if (videoSrc) {
+      const videoLink = document.createElement('a');
+      videoLink.href = videoSrc;
+      videoLink.textContent = videoSrc;
+      imgFrag.appendChild(videoLink);
+    }
     cells.push([imgFrag]);
   } else {
     cells.push(['']);

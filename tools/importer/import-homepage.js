@@ -42,9 +42,9 @@ const PAGE_TEMPLATE = {
     {
       name: 'hero-banner',
       instances: [
-        '[id*="homepage_slideshow_XTNM7e"]:not(.shopify-section)',
-        '[id*="homepage_slideshow_Qwpkep"]:not(.shopify-section)',
-        '[id*="homepage_slideshow_8qAWWT"]:not(.shopify-section)',
+        'section[id*="homepage_slideshow_XTNM7e"]',
+        'section[id*="homepage_slideshow_Qwpkep"]',
+        'section[id*="homepage_slideshow_8qAWWT"]',
       ],
     },
     {
@@ -56,8 +56,8 @@ const PAGE_TEMPLATE = {
     {
       name: 'columns-diptych',
       instances: [
-        '[id*="homepage_slideshow_cbMCQk"]:not(.shopify-section)',
-        '[id*="homepage_slideshow_Rp6Gc4"]:not(.shopify-section)',
+        'section[id*="homepage_slideshow_cbMCQk"]',
+        'section[id*="homepage_slideshow_Rp6Gc4"]',
       ],
     },
     {
@@ -89,7 +89,7 @@ const PAGE_TEMPLATE = {
     {
       id: 'section-1',
       name: 'Hero Slideshow',
-      selector: '[id*="homepage_slideshow_XTNM7e"]:not(.shopify-section)',
+      selector: 'section[id*="homepage_slideshow_XTNM7e"]',
       style: 'dark',
       blocks: ['hero-banner'],
       defaultContent: [],
@@ -116,7 +116,7 @@ const PAGE_TEMPLATE = {
     {
       id: 'section-4',
       name: 'Diptych - Dresses & Reserve',
-      selector: '[id*="homepage_slideshow_cbMCQk"]:not(.shopify-section)',
+      selector: 'section[id*="homepage_slideshow_cbMCQk"]',
       style: null,
       blocks: ['columns-diptych'],
       defaultContent: [],
@@ -124,7 +124,7 @@ const PAGE_TEMPLATE = {
     {
       id: 'section-5',
       name: 'Diptych - Linen & Shorts',
-      selector: '[id*="homepage_slideshow_Rp6Gc4"]:not(.shopify-section)',
+      selector: 'section[id*="homepage_slideshow_Rp6Gc4"]',
       style: null,
       blocks: ['columns-diptych'],
       defaultContent: [],
@@ -140,7 +140,7 @@ const PAGE_TEMPLATE = {
     {
       id: 'section-7',
       name: 'Reef Collaboration Banner',
-      selector: '[id*="homepage_slideshow_Qwpkep"]:not(.shopify-section)',
+      selector: 'section[id*="homepage_slideshow_Qwpkep"]',
       style: null,
       blocks: ['hero-banner'],
       defaultContent: [],
@@ -148,7 +148,7 @@ const PAGE_TEMPLATE = {
     {
       id: 'section-8',
       name: 'Design Studio Banner',
-      selector: '[id*="homepage_slideshow_8qAWWT"]:not(.shopify-section)',
+      selector: 'section[id*="homepage_slideshow_8qAWWT"]',
       style: null,
       blocks: ['hero-banner'],
       defaultContent: [],

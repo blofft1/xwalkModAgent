@@ -1,25 +1,8 @@
 var CustomImportScript = (() => {
   var __defProp = Object.defineProperty;
-  var __defProps = Object.defineProperties;
   var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-  var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
   var __getOwnPropNames = Object.getOwnPropertyNames;
-  var __getOwnPropSymbols = Object.getOwnPropertySymbols;
   var __hasOwnProp = Object.prototype.hasOwnProperty;
-  var __propIsEnum = Object.prototype.propertyIsEnumerable;
-  var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-  var __spreadValues = (a, b) => {
-    for (var prop in b || (b = {}))
-      if (__hasOwnProp.call(b, prop))
-        __defNormalProp(a, prop, b[prop]);
-    if (__getOwnPropSymbols)
-      for (var prop of __getOwnPropSymbols(b)) {
-        if (__propIsEnum.call(b, prop))
-          __defNormalProp(a, prop, b[prop]);
-      }
-    return a;
-  };
-  var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
   var __export = (target, all) => {
     for (var name in all)
       __defProp(target, name, { get: all[name], enumerable: true });
@@ -42,7 +25,9 @@ var CustomImportScript = (() => {
 
   // tools/importer/parsers/hero-banner.js
   function parse(element, { document }) {
-    const bgImg = element.querySelector(".content-over-media > picture img, .content-over-media > img, .slideshow__slide img.responsive-img, video-media + img, img.responsive-img");
+    const bgVideo = element.querySelector("video-media video, video");
+    const videoSrc = bgVideo ? bgVideo.src || bgVideo.querySelector("source")?.src : null;
+    const bgImg = bgVideo?.poster ? { src: bgVideo.poster, alt: bgVideo.alt || "" } : element.querySelector(".content-over-media > picture img, .content-over-media > img, .slideshow__slide img.responsive-img, video-media + img, img.responsive-img");
     const prose = element.querySelector(".homepage-slideshow-content .prose");
     const contentCell = [];
     if (prose) {
@@ -74,13 +59,21 @@ var CustomImportScript = (() => {
       });
     }
     const cells = [];
-    if (bgImg) {
+    if (bgImg || videoSrc) {
       const imgFrag = document.createDocumentFragment();
       imgFrag.appendChild(document.createComment(" field:image "));
-      const pic = document.createElement("img");
-      pic.src = bgImg.src;
-      pic.alt = bgImg.alt || "";
-      imgFrag.appendChild(pic);
+      if (bgImg) {
+        const pic = document.createElement("img");
+        pic.src = bgImg.src;
+        pic.alt = bgImg.alt || "";
+        imgFrag.appendChild(pic);
+      }
+      if (videoSrc) {
+        const videoLink = document.createElement("a");
+        videoLink.href = videoSrc;
+        videoLink.textContent = videoSrc;
+        imgFrag.appendChild(videoLink);
+      }
       cells.push([imgFrag]);
     } else {
       cells.push([""]);
@@ -405,9 +398,9 @@ var CustomImportScript = (() => {
       {
         name: "hero-banner",
         instances: [
-          '[id*="homepage_slideshow_XTNM7e"]:not(.shopify-section)',
-          '[id*="homepage_slideshow_Qwpkep"]:not(.shopify-section)',
-          '[id*="homepage_slideshow_8qAWWT"]:not(.shopify-section)'
+          'section[id*="homepage_slideshow_XTNM7e"]',
+          'section[id*="homepage_slideshow_Qwpkep"]',
+          'section[id*="homepage_slideshow_8qAWWT"]'
         ]
       },
       {
@@ -419,8 +412,8 @@ var CustomImportScript = (() => {
       {
         name: "columns-diptych",
         instances: [
-          '[id*="homepage_slideshow_cbMCQk"]:not(.shopify-section)',
-          '[id*="homepage_slideshow_Rp6Gc4"]:not(.shopify-section)'
+          'section[id*="homepage_slideshow_cbMCQk"]',
+          'section[id*="homepage_slideshow_Rp6Gc4"]'
         ]
       },
       {
@@ -452,7 +445,7 @@ var CustomImportScript = (() => {
       {
         id: "section-1",
         name: "Hero Slideshow",
-        selector: '[id*="homepage_slideshow_XTNM7e"]:not(.shopify-section)',
+        selector: 'section[id*="homepage_slideshow_XTNM7e"]',
         style: "dark",
         blocks: ["hero-banner"],
         defaultContent: []
@@ -479,7 +472,7 @@ var CustomImportScript = (() => {
       {
         id: "section-4",
         name: "Diptych - Dresses & Reserve",
-        selector: '[id*="homepage_slideshow_cbMCQk"]:not(.shopify-section)',
+        selector: 'section[id*="homepage_slideshow_cbMCQk"]',
         style: null,
         blocks: ["columns-diptych"],
         defaultContent: []
@@ -487,7 +480,7 @@ var CustomImportScript = (() => {
       {
         id: "section-5",
         name: "Diptych - Linen & Shorts",
-        selector: '[id*="homepage_slideshow_Rp6Gc4"]:not(.shopify-section)',
+        selector: 'section[id*="homepage_slideshow_Rp6Gc4"]',
         style: null,
         blocks: ["columns-diptych"],
         defaultContent: []
@@ -503,7 +496,7 @@ var CustomImportScript = (() => {
       {
         id: "section-7",
         name: "Reef Collaboration Banner",
-        selector: '[id*="homepage_slideshow_Qwpkep"]:not(.shopify-section)',
+        selector: 'section[id*="homepage_slideshow_Qwpkep"]',
         style: null,
         blocks: ["hero-banner"],
         defaultContent: []
@@ -511,7 +504,7 @@ var CustomImportScript = (() => {
       {
         id: "section-8",
         name: "Design Studio Banner",
-        selector: '[id*="homepage_slideshow_8qAWWT"]:not(.shopify-section)',
+        selector: 'section[id*="homepage_slideshow_8qAWWT"]',
         style: null,
         blocks: ["hero-banner"],
         defaultContent: []
@@ -615,9 +608,10 @@ var CustomImportScript = (() => {
     });
   }
   function executeTransformers(hookName, element, payload) {
-    const enhancedPayload = __spreadProps(__spreadValues({}, payload), {
+    const enhancedPayload = {
+      ...payload,
       template: PAGE_TEMPLATE
-    });
+    };
     transformers.forEach((transformerFn) => {
       try {
         transformerFn.call(null, hookName, element, enhancedPayload);
