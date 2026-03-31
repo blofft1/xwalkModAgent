@@ -5,8 +5,8 @@
  * Parser for hero-banner. Base: hero.
  * Source: https://fahertybrand.com/
  * Selectors from captured DOM: .slideshow__slide, .content-over-media, .prose, .buttons-wrapper
- * Hero block: 1 column, 3 rows: [name] [image] [text]
- * xwalk model fields: image (reference), imageAlt (collapsed), text (richtext)
+ * xwalk non-repeatable block: 1 row, 2 columns: [image | text]
+ * xwalk model fields: image (reference), text (richtext)
  */
 export default function parse(element, { document }) {
   // Extract background video (if present)
@@ -57,10 +57,11 @@ export default function parse(element, { document }) {
     });
   }
 
-  // Build cells: row 1 = image, row 2 = text content
+  // Build cells: 1 row, 2 columns (xwalk non-repeatable: fields = columns)
   const cells = [];
+  const row = [];
 
-  // Row 1: Background image (+ video link if present) with field hint
+  // Column 1: Background image (+ video link if present) with field hint
   if (bgImg || videoSrc) {
     const imgFrag = document.createDocumentFragment();
     imgFrag.appendChild(document.createComment(' field:image '));
@@ -77,20 +78,22 @@ export default function parse(element, { document }) {
       videoLink.textContent = videoSrc;
       imgFrag.appendChild(videoLink);
     }
-    cells.push([imgFrag]);
+    row.push(imgFrag);
   } else {
-    cells.push(['']);
+    row.push('');
   }
 
-  // Row 2: Text content with field hint
+  // Column 2: Text content with field hint
   if (contentCell.length > 0) {
     const textFrag = document.createDocumentFragment();
     textFrag.appendChild(document.createComment(' field:text '));
     contentCell.forEach((el) => textFrag.appendChild(el));
-    cells.push([textFrag]);
+    row.push(textFrag);
   } else {
-    cells.push(['']);
+    row.push('');
   }
+
+  cells.push(row);
 
   const block = WebImporter.Blocks.createBlock(document, { name: 'hero-banner', cells });
   element.replaceWith(block);

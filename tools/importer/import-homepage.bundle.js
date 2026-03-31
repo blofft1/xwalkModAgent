@@ -59,6 +59,7 @@ var CustomImportScript = (() => {
       });
     }
     const cells = [];
+    const row = [];
     if (bgImg || videoSrc) {
       const imgFrag = document.createDocumentFragment();
       imgFrag.appendChild(document.createComment(" field:image "));
@@ -74,18 +75,19 @@ var CustomImportScript = (() => {
         videoLink.textContent = videoSrc;
         imgFrag.appendChild(videoLink);
       }
-      cells.push([imgFrag]);
+      row.push(imgFrag);
     } else {
-      cells.push([""]);
+      row.push("");
     }
     if (contentCell.length > 0) {
       const textFrag = document.createDocumentFragment();
       textFrag.appendChild(document.createComment(" field:text "));
       contentCell.forEach((el) => textFrag.appendChild(el));
-      cells.push([textFrag]);
+      row.push(textFrag);
     } else {
-      cells.push([""]);
+      row.push("");
     }
+    cells.push(row);
     const block = WebImporter.Blocks.createBlock(document, { name: "hero-banner", cells });
     element.replaceWith(block);
   }
